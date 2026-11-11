@@ -28,7 +28,7 @@ body{
 
     background:
     linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url("../images/background.jpg");
+    url("background.jpg");;
 
     background-size:cover;
     background-position:center;
@@ -1220,7 +1220,7 @@ body.light-mode .hero{
         rgba(255,255,255,.35),
         rgba(255,255,255,.35)
     ),
-    url("../images/background.jpg");
+    url("background.jpg");
 
     background-size:cover;
     background-position:center;
