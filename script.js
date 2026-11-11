@@ -93,31 +93,35 @@ function createPetal(){
 
 setInterval(createPetal,700);
 
-const music = document.getElementById("bgMusic");
 
+const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 
 let playing = false;
 
-musicBtn.onclick = () =>{
-
-    if(playing){
-
+musicBtn.onclick = async () => {
+    if (!playing) {
+        try {
+            await music.play();
+            playing = true;
+            musicBtn.innerHTML = "🔊";
+        } catch (error) {
+            console.error("Music playback failed:", error);
+            musicBtn.innerHTML = "🔇";
+            playing = false;
+        }
+    } else {
         music.pause();
-
+        playing = false;
         musicBtn.innerHTML = "🔇";
-
-    }else{
-
-        music.play();
-
-        musicBtn.innerHTML = "🔊";
-
     }
-
-    playing = !playing;
-
 };
+
+music.addEventListener("ended", () => {
+    playing = false;
+    musicBtn.innerHTML = "🔇";
+});
+
 
 const message =
 `Dear Thamu,
