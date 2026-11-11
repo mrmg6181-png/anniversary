@@ -1,0 +1,1934 @@
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+
+    transition:
+    background .6s ease,
+    color .6s ease;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 8%;
+
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("../images/background.jpg");
+
+    background-size:cover;
+    background-position:center;
+    
+    animation:heroBackground 20s ease-in-out infinite alternate;
+
+    overflow:hidden;
+}
+
+.glass-card{
+
+    width:420px;
+
+    padding:60px 45px;
+
+    background:rgba(255,255,255,0.15);
+
+    border:1px solid rgba(255,255,255,0.3);
+
+    border-radius:30px;
+
+    box-shadow:0 8px 32px rgba(0,0,0,.35);
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    animation:heroCard 1.2s ease forwards;
+
+}
+.glass-card h1{
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:70px;
+
+    color:white;
+
+}
+
+.date{
+
+    margin-top:20px;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+button{
+
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+}
+
+.glass-card h1{
+    animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.glass-card{
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    background: rgba(255,255,255,0.08);
+
+    z-index: -1;
+}
+
+.hearts{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff4d6d;
+    font-size:20px;
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) scale(1.8);
+        opacity:0;
+    }
+
+}
+
+.counter{
+
+    margin-top:30px;
+
+    color:white;
+
+}
+
+.counter h3{
+
+    margin-bottom:15px;
+
+    font-size:22px;
+
+}
+
+#anniversaryCounter{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    line-height:1.8;
+
+}
+
+.petals{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:2;
+}
+
+.petal{
+    position:absolute;
+    top:-50px;
+    font-size:22px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+        opacity:.2;
+    }
+
+}
+
+#musicBtn{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    border:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    color:white;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
+
+    transition:.3s;
+
+}
+
+#musicBtn:hover{
+
+    transform:scale(1.1);
+
+}
+
+.love-letter{
+
+    position:relative;
+
+    margin-top:35px;
+
+    padding:40px;
+
+    color:white;
+
+    text-align:left;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.10),
+        rgba(0,0,0,.10)
+    ),
+    url("../images/love-letter-bg.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
+
+}
+
+.love-letter h2{
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+#typingText{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    min-height:180px;
+
+    white-space:pre-line;
+
+}
+
+/* ===========================
+   Loading Screen
+=========================== */
+
+#loader{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    background:#111;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    transition:opacity .8s;
+}
+
+.loader-content{
+
+    text-align:center;
+
+    color:white;
+}
+
+.loader-heart{
+
+    font-size:70px;
+
+    animation:heartbeat 1s infinite;
+}
+
+.loader-content h2{
+
+    margin-top:15px;
+
+    font-size:32px;
+}
+
+.loader-content p{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+    color:#ddd;
+}
+
+@keyframes heartbeat{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* ==========================
+   Gallery Section
+========================== */
+
+.gallery{
+    padding:80px 10%;
+    background:#111;
+    text-align:center;
+}
+
+.gallery h2{
+    color:#fff;
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+.mySwiper{
+    width:100%;
+    max-width:900px;
+}
+
+.swiper-slide{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.swiper-slide img{
+
+    width:100%;
+    height:500px;
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+
+    transition:transform .5s ease,
+               box-shadow .5s ease;
+
+}
+.swiper-slide img:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 20px 50px rgba(255,209,102,.45);
+
+}
+
+/*=========================
+   Premium Counter
+==========================*/
+
+.counter{
+    margin-top:40px;
+    text-align:center;
+}
+
+.counter h3{
+    color:white;
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+.counter-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+}
+
+.time-box{
+
+    width:100px;
+
+    padding:20px 10px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.time-box:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.15);
+}
+
+.time-box h2{
+
+    color:#FFD166;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+}
+
+.time-box span{
+
+    color:white;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+}
+
+/* =========================
+   Love Story Timeline
+========================= */
+
+
+.timeline{
+
+    padding:100px 10%;
+
+    background:#111;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+
+.timeline h2{
+
+    font-size:45px;
+
+    margin-bottom:60px;
+
+}
+
+
+.timeline-container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+
+.timeline-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+
+    height:100%;
+
+    background:#ff4d88;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+}
+
+
+.timeline-item{
+
+    width:50%;
+
+    padding:20px;
+
+    position:relative;
+
+}
+
+
+.timeline-item:nth-child(odd){
+
+    left:0;
+
+    text-align:right;
+
+}
+
+
+.timeline-item:nth-child(even){
+
+    left:50%;
+
+}
+
+
+.timeline-content{
+
+    background:rgba(255,255,255,.12);
+
+    padding:25px;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(15px);
+
+}
+
+
+.timeline-content h3{
+
+    color:#ffd166;
+
+    font-size:25px;
+
+    margin-bottom:10px;
+
+}
+
+
+.timeline-content p{
+
+    font-size:18px;
+
+}
+
+@media(max-width:600px){
+
+
+.glass-card{
+
+    width:90%;
+
+    padding:30px;
+
+}
+
+
+.glass-card h1{
+
+    font-size:45px;
+
+}
+
+
+.timeline-container::before{
+
+    left:20px;
+
+}
+
+
+.timeline-item{
+
+    width:100%;
+
+    left:0!important;
+
+    text-align:left!important;
+
+    padding-left:50px;
+
+}
+
+
+.time-box{
+
+    width:85px;
+
+}
+
+}
+
+/* =========================
+   FINAL PREMIUM EFFECT
+========================= */
+
+
+/* Glass Card 3D Effect */
+
+.glass-card{
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform .25s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.glass-card:hover{
+
+    transform:
+
+    perspective(1000px)
+
+    rotateY(5deg)
+
+    rotateX(5deg);
+
+}
+
+
+/* Button Luxury Effect */
+
+button{
+
+    background:
+
+    linear-gradient(
+        45deg,
+        #ff4d88,
+        #ff9a9e
+    );
+
+    color:white;
+
+    font-weight:600;
+
+}
+
+
+button:hover{
+
+    box-shadow:
+
+    0 0 25px rgba(255,77,136,.8);
+
+}
+
+
+/* Gallery 3D Zoom */
+
+.swiper-slide img{
+
+    transition:.5s;
+
+}
+
+
+.swiper-slide img:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* Timeline Animation */
+
+.timeline-content{
+
+    transition:.5s;
+
+}
+
+
+.timeline-content:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+
+    0 15px 40px rgba(255,77,136,.3);
+
+}
+
+
+/* Smooth Scroll */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/* Background Light Effect */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    background:#ff4d88;
+
+    filter:blur(150px);
+
+    opacity:.35;
+
+    border-radius:50%;
+
+    animation:moveLight 8s infinite alternate;
+
+}
+
+
+@keyframes moveLight{
+
+    from{
+
+        transform:translate(-200px,-100px);
+
+    }
+
+
+    to{
+
+        transform:translate(200px,100px);
+
+    }
+
+}
+
+/* ==========================
+   Navigation
+========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:18px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.25);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    z-index:9999;
+
+}
+
+.logo{
+
+    color:white;
+
+    font-size:26px;
+
+    font-weight:600;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:30px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    transition:all .35s ease;
+
+}
+
+.nav-links a:hover{
+
+    background:rgba(255,255,255,.15);
+
+    color:#FFD166;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   Scroll Down
+========================== */
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:34px;
+
+    height:55px;
+
+    border:2px solid white;
+
+    border-radius:30px;
+
+}
+
+.scroll-down span{
+
+    position:absolute;
+
+    left:50%;
+
+    top:10px;
+
+    width:6px;
+
+    height:6px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transform:translateX(-50%);
+
+    animation:scroll 1.8s infinite;
+
+}
+
+@keyframes scroll{
+
+    0%{
+
+        opacity:0;
+
+        top:10px;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        top:32px;
+
+    }
+
+}
+
+/* ==========================
+   Mobile Menu
+========================== */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:32px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+/* Tablet & Mobile */
+
+@media(max-width:768px){
+
+.navbar{
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+    max-width:1200px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 35px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:60px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+
+    z-index:9999;
+
+    transition:.4s;
+
+}
+.navbar:hover{
+
+    transform:translateX(-50%) translateY(-2px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.30);
+
+}
+
+.logo{
+
+    font-size:18px;
+
+}
+
+.menu-toggle{
+
+    display:block;
+
+}
+
+.nav-links{
+
+    position:absolute;
+
+    top:70px;
+
+    left:0;
+
+    width:100%;
+
+    background:rgba(0,0,0,.95);
+
+    backdrop-filter:blur(15px);
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:20px 0;
+
+    display:none;
+
+}
+
+.nav-links.active{
+
+    display:flex;
+
+}
+
+.nav-links li{
+
+    margin:15px 0;
+
+}
+
+}
+
+/* ==========================
+   Dark / Light Mode
+========================== */
+
+#themeBtn{
+
+    background:transparent;
+
+    border:none;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    padding:8px;
+
+    margin:0;
+
+}
+
+body.light-mode{
+
+    background:#f7f7f7;
+
+    color:#222;
+
+}
+
+body.light-mode .navbar{
+
+    background:rgba(255,255,255,.85);
+
+}
+
+body.light-mode .logo,
+body.light-mode .nav-links a{
+
+    color:#222;
+
+}
+
+body.light-mode .hero-right{
+
+    background:rgba(255,255,255,.75);
+
+}
+
+body.light-mode .hero-right h1,
+body.light-mode .date,
+body.light-mode .love-letter,
+body.light-mode .counter,
+body.light-mode .counter h3{
+
+    color:#222;
+
+}
+
+body.light-mode .time-box{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+}
+
+body.light-mode .timeline,
+body.light-mode .gallery{
+
+    background:#f3f3f3;
+
+    color:#222;
+
+}
+
+body.light-mode .timeline h2,
+body.light-mode .gallery h2{
+
+    color:#222;
+
+}
+
+/* ==========================
+   Premium Theme Animation
+========================== */
+
+.hero,
+.timeline,
+.gallery,
+.memory-card,
+.timeline-content,
+.hero-right,
+.time-box,
+.navbar{
+
+    transition:
+    background .6s ease,
+    color .6s ease,
+    box-shadow .6s ease,
+    border-color .6s ease,
+    transform .4s ease;
+
+}
+
+/* Dark Mode */
+
+.hero{
+
+    transition:all .8s ease;
+
+}
+
+/* Light Mode */
+
+body.light-mode .hero{
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,.35),
+        rgba(255,255,255,.35)
+    ),
+    url("../images/background.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+}
+body.light-mode .timeline-content{
+
+    background:white;
+
+    color:#222;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+body.light-mode .swiper-slide img{
+
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+    transform:scale(.98);
+
+}
+.swiper-slide img{
+
+    transition:all .4s ease;
+
+}
+
+.swiper-slide img:hover{
+
+    transform:scale(1.03);
+
+}
+body.light-mode .time-box{
+
+    background:#ffffff;
+
+    border:1px solid #e5e5e5;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+}
+
+body.light-mode .time-box h2{
+
+    color:#ff4d88;
+
+}
+
+body.light-mode .time-box span{
+
+    color:#555;
+
+}
+/* ==========================
+   Lightbox
+========================== */
+
+#lightbox{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    background:rgba(0,0,0,.92);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    animation:fadeLightbox .3s ease;
+
+}
+
+#lightbox img{
+
+    max-width:90%;
+
+    max-height:85vh;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+
+}
+
+#closeLightbox{
+
+    position:absolute;
+
+    top:25px;
+
+    right:35px;
+
+    color:white;
+
+    font-size:50px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#closeLightbox:hover{
+
+    transform:scale(1.2);
+
+    color:#ff4d88;
+
+}
+
+@keyframes fadeLightbox{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+/* ==========================
+   Lightbox Arrows
+========================== */
+
+#prevImage,
+#nextImage{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:white;
+
+    font-size:60px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    padding:15px;
+
+    transition:.3s;
+
+}
+
+#prevImage{
+
+    left:30px;
+
+}
+
+#nextImage{
+
+    right:30px;
+
+}
+
+#prevImage:hover,
+#nextImage:hover{
+
+    color:#ff4d88;
+
+    transform:translateY(-50%) scale(1.2);
+
+}
+/* ==========================
+   Hero Card Animation
+========================== */
+
+@keyframes heroCard{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================
+   Hero Background Animation
+========================== */
+
+@keyframes heroBackground{
+
+    0%{
+        background-size:100%;
+        background-position:center;
+    }
+
+    100%{
+        background-size:110%;
+        background-position:center;
+    }
+
+}
+/* ==========================
+   Timeline Scroll Animation
+========================== */
+
+.timeline-item{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:all .8s ease;
+
+}
+
+.timeline-item.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+/* ==========================
+   Scroll Progress Bar
+========================== */
+
+#progressBar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0%;
+
+    height:5px;
+
+    background:linear-gradient(
+        90deg,
+        #ff4d88,
+        #ffd166,
+        #ff4d88
+    );
+
+    z-index:99999;
+
+    transition:width .1s linear;
+
+}
+/* ==========================
+   Premium Memory Card
+========================== */
+
+.memory-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
+
+}
+
+
+.memory-card img{
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+
+.memory-card:hover img{
+
+    transform:scale(1.1);
+
+}
+
+
+.memory-info{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:30px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    transparent,
+    rgba(0,0,0,.85)
+    );
+
+}
+
+
+.memory-info h3{
+
+    font-size:26px;
+
+    margin-bottom:10px;
+
+}
+
+
+.memory-info p{
+
+    font-size:16px;
+
+}
+/* ==========================
+   Premium Love Letter
+========================== */
+
+.love-letter{
+
+    position:relative;
+
+    margin-top:40px;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    overflow:hidden;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.3);
+
+}
+
+
+.letter-content{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.love-letter h2{
+
+    color:white;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:45px;
+
+}
+
+
+.line{
+
+    width:80px;
+
+    height:3px;
+
+    background:#FFD166;
+
+    margin:20px auto;
+
+    border-radius:10px;
+
+}
+
+
+#typingText{
+
+    color:white;
+
+    font-size:18px;
+
+    line-height:2;
+
+}
+
+
+.signature{
+
+    margin-top:25px;
+
+    text-align:right;
+
+    color:#FFD166;
+
+    font-size:22px;
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+
+/* Moving Glow */
+
+.letter-glow{
+
+    position:absolute;
+
+    width:200px;
+
+    height:200px;
+
+    background:#ff4d88;
+
+    filter:blur(100px);
+
+    opacity:.4;
+
+    top:-50px;
+
+    right:-50px;
+
+    animation:
+    letterGlow 6s infinite alternate;
+
+}
+
+
+@keyframes letterGlow{
+
+    from{
+
+        transform:translate(0,0);
+
+    }
+
+    to{
+
+        transform:translate(-100px,100px);
+
+    }
+
+}
+/* ==========================
+   Premium Scroll Reveal
+========================== */
+
+.hero-right,
+.gallery h2,
+.swiper,
+.timeline h2,
+.love-letter{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+}
+
+
+.show-section{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+/* ==========================
+   Cursor Glow
+========================== */
+
+.cursor-glow{
+
+    position:fixed;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(255,77,136,.25),
+    transparent 70%
+    );
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:9998;
+
+}
+/* ==========================
+   Final Mobile Optimization
+========================== */
+
+@media(max-width:768px){
+
+
+.hero{
+
+    padding:100px 5% 60px;
+
+}
+
+
+.hero-container{
+
+    flex-direction:column;
+
+    gap:40px;
+
+}
+
+
+.hero-left,
+.hero-right{
+
+    width:100%;
+
+}
+
+
+.hero-right{
+
+    text-align:center;
+
+}
+
+
+.hero-right h1{
+
+    font-size:45px;
+
+}
+
+
+.date{
+
+    font-size:16px;
+
+}
+
+
+.counter h3{
+
+    font-size:25px;
+
+}
+
+
+.counter-box{
+
+    gap:12px;
+
+}
+
+
+.time-box{
+
+    width:75px;
+
+    padding:15px 8px;
+
+}
+
+
+.time-box h2{
+
+    font-size:30px;
+
+}
+
+
+.time-box span{
+
+    font-size:10px;
+
+}
+
+
+.love-letter{
+
+    padding:25px;
+
+}
+
+
+.love-letter h2{
+
+    font-size:38px;
+
+}
+
+
+#typingText{
+
+    font-size:15px;
+
+}
+
+
+.gallery{
+
+    padding:60px 5%;
+
+}
+
+
+.gallery h2{
+
+    font-size:32px;
+
+}
+
+
+.swiper-slide img,
+.memory-card img{
+
+    height:380px;
+
+}
+
+
+.timeline{
+
+    padding:70px 5%;
+
+}
+
+
+.timeline h2{
+
+    font-size:35px;
+
+}
+
+
+.timeline-content{
+
+    padding:20px;
+
+}
+
+
+.timeline-content h3{
+
+    font-size:22px;
+
+}
+
+
+.timeline-content p{
+
+    font-size:15px;
+
+}
+
+
+.cursor-glow{
+
+    display:none;
+
+}
+
+
+}
